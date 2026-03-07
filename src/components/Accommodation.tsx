@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
+import SectionHeading from "./SectionHeading";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -34,12 +35,7 @@ export default function Accommodation() {
       className="bg-white px-6 py-28 md:py-36"
     >
       <div className="mx-auto max-w-2xl text-center">
-        <motion.h2
-          variants={fadeUp}
-          className="font-[var(--font-playfair)] text-[clamp(1.75rem,4vw,2.5rem)] font-light tracking-[-0.01em] text-warm-black"
-        >
-          {t.accommodationHeading}
-        </motion.h2>
+        <SectionHeading>{t.accommodationHeading}</SectionHeading>
 
         <motion.p
           variants={fadeUp}
@@ -58,13 +54,31 @@ export default function Accommodation() {
               variants={fadeUp}
               className="group flex items-center justify-between rounded-2xl bg-beige-50 px-6 py-5 text-left transition-colors hover:bg-beige-100"
             >
-              <div>
-                <p className="font-[var(--font-inter)] text-[17px] font-medium text-warm-black">
-                  {option.name}
-                </p>
-                <p className="mt-1 font-[var(--font-inter)] text-[14px] text-warm-gray">
-                  {option.detail}
-                </p>
+              <div className="flex items-start gap-3">
+                {/* Map pin icon */}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mt-1 shrink-0 text-beige-400"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <div>
+                  <p className="font-[var(--font-inter)] text-[17px] font-medium text-warm-black">
+                    {option.name}
+                  </p>
+                  <p className="mt-1 font-[var(--font-inter)] text-[14px] text-warm-gray">
+                    {option.detail}
+                  </p>
+                </div>
               </div>
               <svg
                 width="16"

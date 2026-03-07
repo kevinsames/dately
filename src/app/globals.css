@@ -31,3 +31,8 @@ body {
   background-color: #E8E8E0;
   color: #1D1D1F;
 }
+
+@keyframes float-dot {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
+import SectionHeading from "./SectionHeading";
 
 interface CountdownProps {
   date: string;
@@ -29,7 +30,10 @@ function calculateTimeLeft(targetDate: string): TimeLeft {
 function Unit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white md:h-24 md:w-24">
+      <div
+        className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white md:h-24 md:w-24"
+        style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
+      >
         <AnimatePresence mode="popLayout">
           <motion.span
             key={value}
@@ -88,15 +92,13 @@ export default function Countdown({ date }: CountdownProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="bg-beige-100 px-6 py-28 md:py-36"
+      className="px-6 py-28 md:py-36"
+      style={{
+        background: "linear-gradient(180deg, #F5F5F0 0%, #F0F0E8 50%, #F5F5F0 100%)",
+      }}
     >
       <div className="mx-auto max-w-2xl text-center">
-        <motion.h2
-          variants={fadeUp}
-          className="font-[var(--font-playfair)] text-[clamp(1.75rem,4vw,2.5rem)] font-light tracking-[-0.01em] text-warm-black"
-        >
-          {t.countingDown}
-        </motion.h2>
+        <SectionHeading>{t.countingDown}</SectionHeading>
 
         <motion.div
           variants={fadeUp}

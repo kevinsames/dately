@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
+import SectionHeading from "./SectionHeading";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,12 +29,23 @@ export default function Wishlist() {
       className="bg-beige-100 px-6 py-28 md:py-36"
     >
       <div className="mx-auto max-w-xl text-center">
-        <motion.h2
-          variants={fadeUp}
-          className="font-[var(--font-playfair)] text-[clamp(1.75rem,4vw,2.5rem)] font-light tracking-[-0.01em] text-warm-black"
-        >
-          {t.wishlistHeading}
-        </motion.h2>
+        {/* Heart icon */}
+        <motion.div variants={fadeUp} className="mb-4 flex justify-center" aria-hidden="true">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#D4D4C8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+          </svg>
+        </motion.div>
+
+        <SectionHeading>{t.wishlistHeading}</SectionHeading>
 
         <motion.p
           variants={fadeUp}

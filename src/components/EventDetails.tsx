@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { EventConfig } from "@/types/event";
 import { formatDate, formatTime } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n";
+import SectionHeading from "./SectionHeading";
 
 interface EventDetailsProps {
   config: EventConfig;
@@ -42,12 +43,7 @@ export default function EventDetails({ config }: EventDetailsProps) {
       className="bg-white px-6 py-28 md:py-36"
     >
       <div className="mx-auto max-w-2xl text-center">
-        <motion.h2
-          variants={fadeUp}
-          className="font-[var(--font-playfair)] text-[clamp(1.75rem,4vw,2.5rem)] font-light tracking-[-0.01em] text-warm-black"
-        >
-          {t.theDetails}
-        </motion.h2>
+        <SectionHeading>{t.theDetails}</SectionHeading>
 
         <motion.p
           variants={fadeUp}
@@ -64,7 +60,7 @@ export default function EventDetails({ config }: EventDetailsProps) {
             <motion.div
               key={detail.key}
               variants={fadeUp}
-              className="rounded-2xl bg-beige-50 p-6 text-left"
+              className="rounded-2xl border-l-2 border-beige-200 bg-beige-50 p-6 text-left"
             >
               <p className="font-[var(--font-inter)] text-[12px] font-medium uppercase tracking-[0.1em] text-warm-gray">
                 {detail.label}

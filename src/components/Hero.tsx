@@ -18,11 +18,42 @@ const fade = {
   }),
 };
 
+const floatingDots = [
+  { size: 6, top: "12%", left: "18%", delay: 0 },
+  { size: 5, top: "28%", right: "14%", delay: 1.2 },
+  { size: 7, bottom: "22%", left: "22%", delay: 2.4 },
+  { size: 4, bottom: "35%", right: "20%", delay: 0.8 },
+];
+
 export default function Hero({ config }: HeroProps) {
   const { t } = useTranslation();
 
   return (
-    <section className="flex min-h-svh flex-col items-center justify-center px-6 py-24">
+    <section
+      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-6 py-24"
+      style={{
+        background: "radial-gradient(ellipse at center, #FFFFFF 0%, #FAFAF8 50%, #F5F5F0 100%)",
+      }}
+    >
+      {/* Floating decorative dots */}
+      {floatingDots.map((dot, i) => (
+        <div
+          key={i}
+          className="pointer-events-none absolute rounded-full bg-beige-300"
+          style={{
+            width: dot.size,
+            height: dot.size,
+            top: dot.top,
+            left: dot.left,
+            right: dot.right,
+            bottom: dot.bottom,
+            opacity: 0.12,
+            animation: `float-dot 6s ease-in-out ${dot.delay}s infinite`,
+          }}
+          aria-hidden="true"
+        />
+      ))}
+
       <motion.p
         custom={0}
         variants={fade}
@@ -59,14 +90,18 @@ export default function Hero({ config }: HeroProps) {
           variants={fade}
           initial="hidden"
           animate="visible"
-          className="relative mx-auto mt-12 aspect-[3/4] w-full max-w-xs overflow-hidden rounded-3xl shadow-lg"
+          className="relative mx-auto mt-12 aspect-[3/4] w-full max-w-xs"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={config.heroImage}
-            alt={config.title}
-            className="h-full w-full object-cover"
-          />
+          {/* Double ring frame */}
+          <div className="absolute -inset-3 rounded-[1.75rem] border border-beige-200" />
+          <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={config.heroImage}
+              alt={config.title}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </motion.div>
       )}
 

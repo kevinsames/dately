@@ -4,6 +4,7 @@ import { eventConfig } from "@/config/event.config";
 import Hero from "@/components/Hero";
 import EventDetails from "@/components/EventDetails";
 import Countdown from "@/components/Countdown";
+import Schedule from "@/components/Schedule";
 import Gallery from "@/components/Gallery";
 import RSVP from "@/components/RSVP";
 import Wishlist from "@/components/Wishlist";
@@ -16,10 +17,11 @@ export default function Home() {
     <main className="bg-beige-50">
       <LanguageToggle />
       <Hero config={eventConfig} />
-      <EventDetails config={eventConfig} />
       {eventConfig.features.countdown && (
         <Countdown date={eventConfig.date} />
       )}
+      <EventDetails config={eventConfig} />
+      <Schedule />
       {eventConfig.features.gallery && eventConfig.gallery && (
         <Gallery gallery={eventConfig.gallery} />
       )}
