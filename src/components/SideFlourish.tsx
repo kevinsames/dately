@@ -2,10 +2,9 @@
 
 /**
  * Decorative botanical/geometric flourishes for left and right sides of sections.
- * Hidden on mobile, visible on md+ screens.
  */
 
-/** Leaf branch — gentle curved stems with small leaves */
+/** Leaf branch — gentle curved stems with small leaves (desktop only) */
 export function LeafBranch({ side, className = "" }: { side: "left" | "right"; className?: string }) {
   const flip = side === "right";
   return (
@@ -38,7 +37,7 @@ export function LeafBranch({ side, className = "" }: { side: "left" | "right"; c
   );
 }
 
-/** Corner dots — small cluster of dots for corners */
+/** Corner dots — small cluster of dots for corners (desktop only) */
 export function CornerDots({ position }: { position: "top-left" | "top-right" | "bottom-left" | "bottom-right" }) {
   const isRight = position.includes("right");
   const isBottom = position.includes("bottom");
@@ -69,7 +68,7 @@ export function CornerDots({ position }: { position: "top-left" | "top-right" | 
   );
 }
 
-/** Curved vine — a simpler decorative arc for sides */
+/** Curved vine — a simpler decorative arc for sides (desktop only) */
 export function CurvedVine({ side, className = "" }: { side: "left" | "right"; className?: string }) {
   const flip = side === "right";
   return (
@@ -98,16 +97,14 @@ export function CurvedVine({ side, className = "" }: { side: "left" | "right"; c
   );
 }
 
-/** Green flower — botanical flower with petals, leaves, and stem */
+/** Green flower — botanical flower with petals, leaves, and stem. Visible on all screens, scaled on mobile. */
 export function GreenFlower({ side, className = "" }: { side: "left" | "right"; className?: string }) {
   const flip = side === "right";
   return (
     <svg
-      width="140"
-      height="400"
       viewBox="0 0 140 400"
       fill="none"
-      className={`pointer-events-none hidden md:block ${className}`}
+      className={`pointer-events-none w-[70px] md:w-[110px] lg:w-[140px] ${className}`}
       style={{
         transform: flip ? "scaleX(-1)" : undefined,
         animation: `${flip ? "sway-reverse" : "sway"} 10s ease-in-out infinite`,
@@ -156,19 +153,5 @@ export function GreenFlower({ side, className = "" }: { side: "left" | "right"; 
       <circle cx="100" cy="270" r="2" fill="#8B9E7C" opacity="0.10" />
       <circle cx="34" cy="228" r="2" fill="#8B9E7C" opacity="0.09" />
     </svg>
-  );
-}
-
-/** Section divider — ornamental line between sections */
-export function SectionDivider() {
-  return (
-    <div className="flex items-center justify-center py-2" aria-hidden="true">
-      <span className="h-px w-12 bg-beige-200" />
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="mx-3">
-        <circle cx="10" cy="10" r="2" fill="#D4D4C8" opacity="0.3" />
-        <circle cx="10" cy="10" r="5" stroke="#D4D4C8" strokeWidth="0.5" opacity="0.15" />
-      </svg>
-      <span className="h-px w-12 bg-beige-200" />
-    </div>
   );
 }
