@@ -20,9 +20,9 @@ export default function Accommodation() {
   const { t } = useTranslation();
 
   const options = [
-    { key: "1", name: t.accommodationOption1Name, detail: t.accommodationOption1Detail },
-    { key: "2", name: t.accommodationOption2Name, detail: t.accommodationOption2Detail },
-    { key: "3", name: t.accommodationOption3Name, detail: t.accommodationOption3Detail },
+    { key: "1", name: t.accommodationOption1Name, detail: t.accommodationOption1Detail, url: t.accommodationOption1Url },
+    { key: "2", name: t.accommodationOption2Name, detail: t.accommodationOption2Detail, url: t.accommodationOption2Url },
+    { key: "3", name: t.accommodationOption3Name, detail: t.accommodationOption3Detail, url: t.accommodationOption3Url },
   ];
 
   return (
@@ -50,18 +50,37 @@ export default function Accommodation() {
 
         <motion.div variants={stagger} className="mt-12 grid gap-4">
           {options.map((option) => (
-            <motion.div
+            <motion.a
               key={option.key}
+              href={option.url}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={fadeUp}
-              className="rounded-2xl bg-beige-50 px-6 py-5 text-left"
+              className="group flex items-center justify-between rounded-2xl bg-beige-50 px-6 py-5 text-left transition-colors hover:bg-beige-100"
             >
-              <p className="font-[var(--font-inter)] text-[17px] font-medium text-warm-black">
-                {option.name}
-              </p>
-              <p className="mt-1 font-[var(--font-inter)] text-[14px] text-warm-gray">
-                {option.detail}
-              </p>
-            </motion.div>
+              <div>
+                <p className="font-[var(--font-inter)] text-[17px] font-medium text-warm-black">
+                  {option.name}
+                </p>
+                <p className="mt-1 font-[var(--font-inter)] text-[14px] text-warm-gray">
+                  {option.detail}
+                </p>
+              </div>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="shrink-0 text-beige-400 transition-colors group-hover:text-warm-gray"
+                aria-hidden="true"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </motion.a>
           ))}
         </motion.div>
       </div>

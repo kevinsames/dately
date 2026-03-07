@@ -53,7 +53,7 @@ export default function EventDetails({ config }: EventDetailsProps) {
           variants={fadeUp}
           className="mx-auto mt-6 max-w-lg font-[var(--font-inter)] text-[17px] leading-relaxed text-warm-gray"
         >
-          {config.message}
+          {t.eventMessage}
         </motion.p>
 
         <motion.div
