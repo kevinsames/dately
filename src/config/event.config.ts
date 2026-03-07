@@ -12,7 +12,7 @@ export const eventConfig: EventConfig = {
   message:
     "We would love for you to join us as we celebrate our love and begin this beautiful new chapter together.",
   dresscode: "Black Tie Optional",
-  heroImage: "/images/IMG_9288.JPG",
+  heroImage: "/images/hero.jpg",
   features: {
     countdown: true,
     gallery: false,
@@ -20,6 +20,6 @@ export const eventConfig: EventConfig = {
     map: true,
   },
   gallery: {
-    images: ["/images/IMG_9288.JPG"],
+    images: ["/images/hero.jpg"],
   },
 };
