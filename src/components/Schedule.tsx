@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
-import { LeafBranch, CornerDots } from "./SideFlourish";
+import { LeafBranch, CornerDots, GreenFlower } from "./SideFlourish";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -82,6 +82,9 @@ export default function Schedule() {
       {/* Side botanical flourishes */}
       <div className="absolute right-4 top-1/3 -translate-y-1/2 lg:right-10 xl:right-20">
         <LeafBranch side="right" />
+      </div>
+      <div className="absolute left-0 top-12 lg:left-4 xl:left-12">
+        <GreenFlower side="left" />
       </div>
       <CornerDots position="top-left" />
       <CornerDots position="bottom-right" />

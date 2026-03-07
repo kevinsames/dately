@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
-import { LeafBranch } from "./SideFlourish";
+import { LeafBranch, GreenFlower } from "./SideFlourish";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -35,6 +35,10 @@ export default function Wishlist() {
       </div>
       <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:right-8 xl:right-16">
         <LeafBranch side="right" />
+      </div>
+      {/* Green flowers */}
+      <div className="absolute bottom-8 right-0 lg:right-6 xl:right-14">
+        <GreenFlower side="right" />
       </div>
 
       <div className="mx-auto max-w-xl text-center">

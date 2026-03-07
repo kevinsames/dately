@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
-import { CurvedVine, CornerDots } from "./SideFlourish";
+import { CurvedVine, CornerDots, GreenFlower } from "./SideFlourish";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -38,6 +38,9 @@ export default function Accommodation() {
       {/* Side decorations */}
       <div className="absolute left-4 top-1/2 -translate-y-1/2 lg:left-10">
         <CurvedVine side="left" />
+      </div>
+      <div className="absolute right-0 top-8 lg:right-4 xl:right-10">
+        <GreenFlower side="right" />
       </div>
       <CornerDots position="top-right" />
 

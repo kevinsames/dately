@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { EventConfig } from "@/types/event";
 import { formatDate } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n";
-import { LeafBranch } from "./SideFlourish";
+import { LeafBranch, GreenFlower } from "./SideFlourish";
 
 interface HeroProps {
   config: EventConfig;
@@ -46,6 +46,13 @@ export default function Hero({ config }: HeroProps) {
       </div>
       <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:right-8 xl:right-16">
         <LeafBranch side="right" />
+      </div>
+      {/* Green flowers */}
+      <div className="absolute bottom-16 left-0 lg:left-4 xl:left-12">
+        <GreenFlower side="left" />
+      </div>
+      <div className="absolute bottom-16 right-0 lg:right-4 xl:right-12">
+        <GreenFlower side="right" />
       </div>
 
       {/* Floating decorative dots */}
