@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { EventConfig } from "@/types/event";
 import { formatDate } from "@/lib/utils";
@@ -62,13 +61,11 @@ export default function Hero({ config }: HeroProps) {
           animate="visible"
           className="relative mx-auto mt-12 aspect-[3/4] w-full max-w-xs overflow-hidden rounded-3xl shadow-lg"
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={config.heroImage}
             alt={config.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 80vw, 320px"
+            className="h-full w-full object-cover"
           />
         </motion.div>
       )}

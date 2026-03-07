@@ -1,5 +1,7 @@
 import { EventConfig } from "@/types/event";
 
+const basePath = process.env.NODE_ENV === "production" ? "/dately" : "";
+
 export const eventConfig: EventConfig = {
   title: "Hadi & Homa",
   subtitle: "Nasrollahi",
@@ -12,7 +14,7 @@ export const eventConfig: EventConfig = {
   message:
     "We would love for you to join us as we celebrate our love and begin this beautiful new chapter together.",
   dresscode: "Black Tie Optional",
-  heroImage: "/images/hero.jpg",
+  heroImage: `${basePath}/images/hero.jpg`,
   features: {
     countdown: true,
     gallery: false,
