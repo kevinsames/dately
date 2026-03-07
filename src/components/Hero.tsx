@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { EventConfig } from "@/types/event";
 import { formatDate } from "@/lib/utils";
+import { useTranslation } from "@/lib/i18n";
 
 interface HeroProps {
   config: EventConfig;
@@ -18,6 +19,8 @@ const fade = {
 };
 
 export default function Hero({ config }: HeroProps) {
+  const { t } = useTranslation();
+
   return (
     <section className="flex min-h-svh flex-col items-center justify-center px-6">
       <motion.p
@@ -27,7 +30,7 @@ export default function Hero({ config }: HeroProps) {
         animate="visible"
         className="mb-8 font-[var(--font-inter)] text-[13px] font-medium uppercase tracking-[0.25em] text-warm-gray"
       >
-        Save the Date
+        {t.saveTheDate}
       </motion.p>
 
       <motion.h1

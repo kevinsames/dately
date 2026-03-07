@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { EventConfig } from "@/types/event";
+import { useTranslation } from "@/lib/i18n";
 
 interface FooterProps {
   config: EventConfig;
@@ -21,6 +22,8 @@ const stagger = {
 };
 
 export default function Footer({ config }: FooterProps) {
+  const { t } = useTranslation();
+
   return (
     <motion.footer
       variants={stagger}
@@ -45,7 +48,14 @@ export default function Footer({ config }: FooterProps) {
         variants={fadeUp}
         className="font-[var(--font-inter)] text-[15px] text-warm-gray"
       >
-        We can&apos;t wait to celebrate with you
+        {t.footerMessage}
+      </motion.p>
+
+      <motion.p
+        variants={fadeUp}
+        className="mt-12 font-[var(--font-inter)] text-[11px] italic tracking-wide text-beige-300"
+      >
+        Soli Deo Gloria
       </motion.p>
     </motion.footer>
   );

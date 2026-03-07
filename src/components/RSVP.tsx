@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "@/lib/i18n";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -17,6 +18,7 @@ const stagger = {
 };
 
 export default function RSVP() {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
   if (submitted) {
@@ -29,10 +31,10 @@ export default function RSVP() {
             transition={{ duration: 0.5 }}
           >
             <p className="font-[var(--font-playfair)] text-[2rem] font-light text-warm-black">
-              Thank you
+              {t.thankYou}
             </p>
             <p className="mt-3 font-[var(--font-inter)] text-[15px] text-warm-gray">
-              We&apos;ve received your RSVP.
+              {t.receivedRsvp}
             </p>
           </motion.div>
         </div>
@@ -53,7 +55,7 @@ export default function RSVP() {
           variants={fadeUp}
           className="font-[var(--font-playfair)] text-[clamp(1.75rem,4vw,2.5rem)] font-light tracking-[-0.01em] text-warm-black"
         >
-          RSVP
+          {t.rsvp}
         </motion.h2>
 
         <motion.form
@@ -69,7 +71,7 @@ export default function RSVP() {
               htmlFor="rsvp-name"
               className="mb-1.5 block font-[var(--font-inter)] text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray"
             >
-              Full Name
+              {t.fullName}
             </label>
             <input
               id="rsvp-name"
@@ -84,7 +86,7 @@ export default function RSVP() {
               htmlFor="rsvp-email"
               className="mb-1.5 block font-[var(--font-inter)] text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray"
             >
-              Email
+              {t.email}
             </label>
             <input
               id="rsvp-email"
@@ -99,16 +101,16 @@ export default function RSVP() {
               htmlFor="rsvp-attendance"
               className="mb-1.5 block font-[var(--font-inter)] text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray"
             >
-              Will you attend?
+              {t.willYouAttend}
             </label>
             <select
               id="rsvp-attendance"
               required
               className="w-full appearance-none rounded-xl border border-beige-200 bg-white px-4 py-3 font-[var(--font-inter)] text-[15px] text-warm-black outline-none transition-colors focus:border-beige-400"
             >
-              <option value="">Select</option>
-              <option value="yes">Joyfully Accept</option>
-              <option value="no">Regretfully Decline</option>
+              <option value="">{t.select}</option>
+              <option value="yes">{t.joyfullyAccept}</option>
+              <option value="no">{t.regretfullyDecline}</option>
             </select>
           </div>
 
@@ -116,7 +118,7 @@ export default function RSVP() {
             type="submit"
             className="mt-4 w-full rounded-xl bg-warm-black py-3.5 font-[var(--font-inter)] text-[14px] font-medium tracking-wide text-white transition-opacity hover:opacity-85"
           >
-            Send RSVP
+            {t.sendRsvp}
           </button>
         </motion.form>
       </div>

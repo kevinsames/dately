@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { EventConfig } from "@/types/event";
 import { formatDate, formatTime } from "@/lib/utils";
+import { useTranslation } from "@/lib/i18n";
 
 interface EventDetailsProps {
   config: EventConfig;
@@ -22,12 +23,14 @@ const stagger = {
 };
 
 export default function EventDetails({ config }: EventDetailsProps) {
+  const { t } = useTranslation();
+
   const details = [
-    { label: "Date", value: formatDate(config.date) },
-    { label: "Time", value: formatTime(config.date) },
-    { label: "Venue", value: config.location.venue },
-    { label: "Location", value: config.location.address },
-    ...(config.dresscode ? [{ label: "Dress Code", value: config.dresscode }] : []),
+    { label: t.date, value: formatDate(config.date) },
+    { label: t.time, value: formatTime(config.date) },
+    { label: t.venue, value: config.location.venue },
+    { label: t.location, value: config.location.address },
+    ...(config.dresscode ? [{ label: t.dressCode, value: config.dresscode }] : []),
   ];
 
   return (
@@ -43,7 +46,7 @@ export default function EventDetails({ config }: EventDetailsProps) {
           variants={fadeUp}
           className="font-[var(--font-playfair)] text-[clamp(1.75rem,4vw,2.5rem)] font-light tracking-[-0.01em] text-warm-black"
         >
-          The Details
+          {t.theDetails}
         </motion.h2>
 
         <motion.p
@@ -81,7 +84,7 @@ export default function EventDetails({ config }: EventDetailsProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-[var(--font-inter)] text-[15px] font-medium text-warm-gray transition-colors hover:text-warm-black"
             >
-              View on Maps
+              {t.viewOnMaps}
               <svg
                 width="14"
                 height="14"

@@ -6,11 +6,14 @@ import EventDetails from "@/components/EventDetails";
 import Countdown from "@/components/Countdown";
 import Gallery from "@/components/Gallery";
 import RSVP from "@/components/RSVP";
+import Wishlist from "@/components/Wishlist";
 import Footer from "@/components/Footer";
+import LanguageToggle from "@/components/LanguageToggle";
 
 export default function Home() {
   return (
     <main className="bg-beige-50">
+      <LanguageToggle />
       <Hero config={eventConfig} />
       <EventDetails config={eventConfig} />
       {eventConfig.features.countdown && (
@@ -19,6 +22,7 @@ export default function Home() {
       {eventConfig.features.gallery && eventConfig.gallery && (
         <Gallery gallery={eventConfig.gallery} />
       )}
+      <Wishlist />
       {eventConfig.features.rsvp && <RSVP />}
       <Footer config={eventConfig} />
     </main>

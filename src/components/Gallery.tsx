@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GalleryConfig } from "@/types/event";
+import { useTranslation } from "@/lib/i18n";
 
 interface GalleryProps {
   gallery: GalleryConfig;
@@ -21,6 +22,8 @@ const stagger = {
 };
 
 export default function Gallery({ gallery }: GalleryProps) {
+  const { t } = useTranslation();
+
   return (
     <motion.section
       variants={stagger}
@@ -34,7 +37,7 @@ export default function Gallery({ gallery }: GalleryProps) {
           variants={fadeUp}
           className="font-[var(--font-playfair)] text-[clamp(1.75rem,4vw,2.5rem)] font-light tracking-[-0.01em] text-warm-black"
         >
-          Our Moments
+          {t.ourMoments}
         </motion.h2>
 
         <motion.div

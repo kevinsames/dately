@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "@/lib/i18n";
 
 interface CountdownProps {
   date: string;
@@ -63,6 +64,7 @@ const stagger = {
 };
 
 export default function Countdown({ date }: CountdownProps) {
+  const { t } = useTranslation();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
 
@@ -74,10 +76,10 @@ export default function Countdown({ date }: CountdownProps) {
   }, [date]);
 
   const units = [
-    { value: timeLeft.days, label: "Days" },
-    { value: timeLeft.hours, label: "Hours" },
-    { value: timeLeft.minutes, label: "Minutes" },
-    { value: timeLeft.seconds, label: "Seconds" },
+    { value: timeLeft.days, label: t.days },
+    { value: timeLeft.hours, label: t.hours },
+    { value: timeLeft.minutes, label: t.minutes },
+    { value: timeLeft.seconds, label: t.seconds },
   ];
 
   return (
@@ -93,7 +95,7 @@ export default function Countdown({ date }: CountdownProps) {
           variants={fadeUp}
           className="font-[var(--font-playfair)] text-[clamp(1.75rem,4vw,2.5rem)] font-light tracking-[-0.01em] text-warm-black"
         >
-          Counting Down
+          {t.countingDown}
         </motion.h2>
 
         <motion.div
