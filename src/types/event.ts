@@ -24,4 +24,5 @@ export interface EventConfig {
   dresscode?: string;
   features: FeaturesConfig;
   gallery?: GalleryConfig;
+  heroImage?: string;
 }

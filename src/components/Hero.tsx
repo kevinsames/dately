@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { EventConfig } from "@/types/event";
 import { formatDate } from "@/lib/utils";
@@ -22,7 +23,7 @@ export default function Hero({ config }: HeroProps) {
   const { t } = useTranslation();
 
   return (
-    <section className="flex min-h-svh flex-col items-center justify-center px-6">
+    <section className="flex min-h-svh flex-col items-center justify-center px-6 py-24">
       <motion.p
         custom={0}
         variants={fade}
@@ -48,13 +49,32 @@ export default function Hero({ config }: HeroProps) {
         variants={fade}
         initial="hidden"
         animate="visible"
-        className="mt-5 font-[var(--font-inter)] text-[17px] font-normal text-warm-gray"
+        className="mt-3 font-[var(--font-inter)] text-[17px] font-normal text-warm-gray"
       >
         {config.subtitle}
       </motion.p>
 
+      {config.heroImage && (
+        <motion.div
+          custom={3}
+          variants={fade}
+          initial="hidden"
+          animate="visible"
+          className="relative mx-auto mt-12 aspect-[3/4] w-full max-w-xs overflow-hidden rounded-3xl shadow-lg"
+        >
+          <Image
+            src={config.heroImage}
+            alt={config.title}
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 768px) 80vw, 320px"
+          />
+        </motion.div>
+      )}
+
       <motion.div
-        custom={3}
+        custom={4}
         variants={fade}
         initial="hidden"
         animate="visible"
@@ -62,7 +82,7 @@ export default function Hero({ config }: HeroProps) {
       />
 
       <motion.p
-        custom={4}
+        custom={5}
         variants={fade}
         initial="hidden"
         animate="visible"
@@ -72,7 +92,7 @@ export default function Hero({ config }: HeroProps) {
       </motion.p>
 
       <motion.p
-        custom={5}
+        custom={6}
         variants={fade}
         initial="hidden"
         animate="visible"
@@ -82,7 +102,7 @@ export default function Hero({ config }: HeroProps) {
       </motion.p>
 
       <motion.div
-        custom={6}
+        custom={7}
         variants={fade}
         initial="hidden"
         animate="visible"

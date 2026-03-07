@@ -34,6 +34,15 @@ const translations = {
     wishlistHeading: "Wishlist",
     wishlistBody:
       "We are grateful and well provided for. You don't need to bring us anything — but if it's on your heart, we'd love your support toward our honeymoon.",
+    accommodationHeading: "Accommodation",
+    accommodationBody:
+      "Here are a few places we recommend for your stay. All are within easy reach of the venue.",
+    accommodationOption1Name: "Hotel am Schloss",
+    accommodationOption1Detail: "5 min from venue · from €89/night",
+    accommodationOption2Name: "Pension Ahrensburg",
+    accommodationOption2Detail: "10 min from venue · from €65/night",
+    accommodationOption3Name: "City Hotel Hamburg",
+    accommodationOption3Detail: "20 min from venue · from €110/night",
   },
   de: {
     saveTheDate: "Save the Date",
@@ -64,6 +73,15 @@ const translations = {
     wishlistHeading: "Wunschliste",
     wishlistBody:
       "Wir sind dankbar und gut versorgt. Ihr braucht uns nichts zu schenken — aber wenn ihr es auf dem Herzen habt, unterstützt uns gerne bei der Finanzierung unserer Flitterwochen.",
+    accommodationHeading: "Unterkünfte",
+    accommodationBody:
+      "Hier sind einige Unterkünfte, die wir euch für euren Aufenthalt empfehlen können. Alle sind gut erreichbar.",
+    accommodationOption1Name: "Hotel am Schloss",
+    accommodationOption1Detail: "5 Min. entfernt · ab 89 €/Nacht",
+    accommodationOption2Name: "Pension Ahrensburg",
+    accommodationOption2Detail: "10 Min. entfernt · ab 65 €/Nacht",
+    accommodationOption3Name: "City Hotel Hamburg",
+    accommodationOption3Detail: "20 Min. entfernt · ab 110 €/Nacht",
   },
 } as const;
 
