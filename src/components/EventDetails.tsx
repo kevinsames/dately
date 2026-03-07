@@ -26,11 +26,11 @@ export default function EventDetails({ config }: EventDetailsProps) {
   const { t } = useTranslation();
 
   const details = [
-    { label: t.date, value: formatDate(config.date) },
-    { label: t.time, value: formatTime(config.date) },
-    { label: t.venue, value: config.location.venue },
-    { label: t.location, value: config.location.address },
-    ...(config.dresscode ? [{ label: t.dressCode, value: config.dresscode }] : []),
+    { key: "date", label: t.date, value: formatDate(config.date) },
+    { key: "time", label: t.time, value: formatTime(config.date) },
+    { key: "venue", label: t.venue, value: config.location.venue },
+    { key: "location", label: t.location, value: config.location.address },
+    ...(config.dresscode ? [{ key: "dresscode", label: t.dressCode, value: config.dresscode }] : []),
   ];
 
   return (
@@ -62,7 +62,7 @@ export default function EventDetails({ config }: EventDetailsProps) {
         >
           {details.map((detail) => (
             <motion.div
-              key={detail.label}
+              key={detail.key}
               variants={fadeUp}
               className="rounded-2xl bg-beige-50 p-6 text-left"
             >

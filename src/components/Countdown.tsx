@@ -76,10 +76,10 @@ export default function Countdown({ date }: CountdownProps) {
   }, [date]);
 
   const units = [
-    { value: timeLeft.days, label: t.days },
-    { value: timeLeft.hours, label: t.hours },
-    { value: timeLeft.minutes, label: t.minutes },
-    { value: timeLeft.seconds, label: t.seconds },
+    { key: "days", value: timeLeft.days, label: t.days },
+    { key: "hours", value: timeLeft.hours, label: t.hours },
+    { key: "minutes", value: timeLeft.minutes, label: t.minutes },
+    { key: "seconds", value: timeLeft.seconds, label: t.seconds },
   ];
 
   return (
@@ -103,8 +103,8 @@ export default function Countdown({ date }: CountdownProps) {
           className="mt-12 flex justify-center gap-3 md:gap-6"
         >
           {mounted
-            ? units.map((u) => <Unit key={u.label} value={u.value} label={u.label} />)
-            : units.map((u) => <Unit key={u.label} value={0} label={u.label} />)}
+            ? units.map((u) => <Unit key={u.key} value={u.value} label={u.label} />)
+            : units.map((u) => <Unit key={u.key} value={0} label={u.label} />)}
         </motion.div>
       </div>
     </motion.section>

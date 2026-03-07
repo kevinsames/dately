@@ -20,9 +20,9 @@ export default function Accommodation() {
   const { t } = useTranslation();
 
   const options = [
-    { name: t.accommodationOption1Name, detail: t.accommodationOption1Detail },
-    { name: t.accommodationOption2Name, detail: t.accommodationOption2Detail },
-    { name: t.accommodationOption3Name, detail: t.accommodationOption3Detail },
+    { key: "1", name: t.accommodationOption1Name, detail: t.accommodationOption1Detail },
+    { key: "2", name: t.accommodationOption2Name, detail: t.accommodationOption2Detail },
+    { key: "3", name: t.accommodationOption3Name, detail: t.accommodationOption3Detail },
   ];
 
   return (
@@ -51,7 +51,7 @@ export default function Accommodation() {
         <motion.div variants={stagger} className="mt-12 grid gap-4">
           {options.map((option) => (
             <motion.div
-              key={option.name}
+              key={option.key}
               variants={fadeUp}
               className="rounded-2xl bg-beige-50 px-6 py-5 text-left"
             >
