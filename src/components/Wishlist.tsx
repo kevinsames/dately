@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
+import { LeafBranch } from "./SideFlourish";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -26,8 +27,16 @@ export default function Wishlist() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="bg-beige-100 px-6 py-28 md:py-36"
+      className="relative overflow-hidden bg-beige-100 px-6 py-28 md:py-36"
     >
+      {/* Side botanical flourishes */}
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 lg:left-8 xl:left-16">
+        <LeafBranch side="left" />
+      </div>
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:right-8 xl:right-16">
+        <LeafBranch side="right" />
+      </div>
+
       <div className="mx-auto max-w-xl text-center">
         {/* Heart icon */}
         <motion.div variants={fadeUp} className="mb-4 flex justify-center" aria-hidden="true">

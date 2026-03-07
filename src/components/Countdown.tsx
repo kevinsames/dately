@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
+import { CurvedVine } from "./SideFlourish";
 
 interface CountdownProps {
   date: string;
@@ -92,11 +93,19 @@ export default function Countdown({ date }: CountdownProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="px-6 py-28 md:py-36"
+      className="relative overflow-hidden px-6 py-28 md:py-36"
       style={{
         background: "linear-gradient(180deg, #F5F5F0 0%, #F0F0E8 50%, #F5F5F0 100%)",
       }}
     >
+      {/* Side decorations */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 lg:left-12">
+        <CurvedVine side="left" />
+      </div>
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 lg:right-12">
+        <CurvedVine side="right" />
+      </div>
+
       <div className="mx-auto max-w-2xl text-center">
         <SectionHeading>{t.countingDown}</SectionHeading>
 

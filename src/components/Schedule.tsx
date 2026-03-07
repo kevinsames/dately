@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
+import { LeafBranch, CornerDots } from "./SideFlourish";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -76,8 +77,15 @@ export default function Schedule() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="bg-beige-100 px-6 py-28 md:py-36"
+      className="relative overflow-hidden bg-beige-100 px-6 py-28 md:py-36"
     >
+      {/* Side botanical flourishes */}
+      <div className="absolute right-4 top-1/3 -translate-y-1/2 lg:right-10 xl:right-20">
+        <LeafBranch side="right" />
+      </div>
+      <CornerDots position="top-left" />
+      <CornerDots position="bottom-right" />
+
       <div className="mx-auto max-w-md text-center">
         <SectionHeading>{t.scheduleHeading}</SectionHeading>
 

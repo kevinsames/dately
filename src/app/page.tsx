@@ -11,6 +11,7 @@ import Wishlist from "@/components/Wishlist";
 import Accommodation from "@/components/Accommodation";
 import Footer from "@/components/Footer";
 import LanguageToggle from "@/components/LanguageToggle";
+import { SectionDivider } from "@/components/SideFlourish";
 
 export default function Home() {
   return (
@@ -20,14 +21,22 @@ export default function Home() {
       {eventConfig.features.countdown && (
         <Countdown date={eventConfig.date} />
       )}
+      <SectionDivider />
       <EventDetails config={eventConfig} />
+      <SectionDivider />
       <Schedule />
       {eventConfig.features.gallery && eventConfig.gallery && (
-        <Gallery gallery={eventConfig.gallery} />
+        <>
+          <SectionDivider />
+          <Gallery gallery={eventConfig.gallery} />
+        </>
       )}
+      <SectionDivider />
       <Accommodation />
+      <SectionDivider />
       <Wishlist />
       {eventConfig.features.rsvp && <RSVP />}
+      <SectionDivider />
       <Footer config={eventConfig} />
     </main>
   );

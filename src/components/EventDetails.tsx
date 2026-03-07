@@ -5,6 +5,7 @@ import { EventConfig } from "@/types/event";
 import { formatDate, formatTime } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
+import { CornerDots, CurvedVine } from "./SideFlourish";
 
 interface EventDetailsProps {
   config: EventConfig;
@@ -40,8 +41,18 @@ export default function EventDetails({ config }: EventDetailsProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="bg-white px-6 py-28 md:py-36"
+      className="relative overflow-hidden bg-white px-6 py-28 md:py-36"
     >
+      {/* Side decorations */}
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 lg:left-10">
+        <CurvedVine side="left" />
+      </div>
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:right-10">
+        <CurvedVine side="right" />
+      </div>
+      <CornerDots position="top-right" />
+      <CornerDots position="bottom-left" />
+
       <div className="mx-auto max-w-2xl text-center">
         <SectionHeading>{t.theDetails}</SectionHeading>
 

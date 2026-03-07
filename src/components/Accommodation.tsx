@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
+import { CurvedVine, CornerDots } from "./SideFlourish";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -32,8 +33,14 @@ export default function Accommodation() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="bg-white px-6 py-28 md:py-36"
+      className="relative overflow-hidden bg-white px-6 py-28 md:py-36"
     >
+      {/* Side decorations */}
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 lg:left-10">
+        <CurvedVine side="left" />
+      </div>
+      <CornerDots position="top-right" />
+
       <div className="mx-auto max-w-2xl text-center">
         <SectionHeading>{t.accommodationHeading}</SectionHeading>
 

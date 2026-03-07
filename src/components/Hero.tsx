@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { EventConfig } from "@/types/event";
 import { formatDate } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n";
+import { LeafBranch } from "./SideFlourish";
 
 interface HeroProps {
   config: EventConfig;
@@ -23,6 +24,10 @@ const floatingDots = [
   { size: 5, top: "28%", right: "14%", delay: 1.2 },
   { size: 7, bottom: "22%", left: "22%", delay: 2.4 },
   { size: 4, bottom: "35%", right: "20%", delay: 0.8 },
+  { size: 3, top: "45%", left: "10%", delay: 1.8 },
+  { size: 5, top: "60%", right: "10%", delay: 3.0 },
+  { size: 4, top: "8%", right: "28%", delay: 0.4 },
+  { size: 3, bottom: "15%", right: "30%", delay: 2.0 },
 ];
 
 export default function Hero({ config }: HeroProps) {
@@ -35,6 +40,14 @@ export default function Hero({ config }: HeroProps) {
         background: "radial-gradient(ellipse at center, #FFFFFF 0%, #FAFAF8 50%, #F5F5F0 100%)",
       }}
     >
+      {/* Side botanical flourishes */}
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 lg:left-8 xl:left-16">
+        <LeafBranch side="left" />
+      </div>
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:right-8 xl:right-16">
+        <LeafBranch side="right" />
+      </div>
+
       {/* Floating decorative dots */}
       {floatingDots.map((dot, i) => (
         <div
