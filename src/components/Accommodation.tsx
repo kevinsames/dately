@@ -23,8 +23,6 @@ export default function Accommodation() {
 
   const options = [
     { key: "1", name: t.accommodationOption1Name, detail: t.accommodationOption1Detail, url: t.accommodationOption1Url },
-    { key: "2", name: t.accommodationOption2Name, detail: t.accommodationOption2Detail, url: t.accommodationOption2Url },
-    { key: "3", name: t.accommodationOption3Name, detail: t.accommodationOption3Detail, url: t.accommodationOption3Url },
   ];
 
   return (
