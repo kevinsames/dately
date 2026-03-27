@@ -158,7 +158,7 @@ export default function Hero({ config }: HeroProps) {
         variants={fade}
         initial="hidden"
         animate="visible"
-        className="mt-10 md:mt-20"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
         style={{ willChange: "transform" }}
       >
         <motion.svg
