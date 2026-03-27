@@ -148,7 +148,7 @@ export default function Hero({ config }: HeroProps) {
         variants={fade}
         initial="hidden"
         animate="visible"
-        className="mt-2 text-center font-[var(--font-inter)] text-[15px] text-warm-gray"
+        className="mt-2 w-full text-center font-[var(--font-inter)] text-[15px] text-warm-gray"
       >
         {config.location.venue} · {config.location.address}
       </motion.p>
