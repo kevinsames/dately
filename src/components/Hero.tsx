@@ -35,7 +35,7 @@ export default function Hero({ config }: HeroProps) {
 
   return (
     <section
-      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-6 py-24"
+      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-6 py-14 md:py-24"
       style={{
         background: "radial-gradient(ellipse at center, #FFFFFF 0%, #FAFAF8 50%, #F5F5F0 100%)",
       }}
@@ -110,7 +110,7 @@ export default function Hero({ config }: HeroProps) {
           variants={fade}
           initial="hidden"
           animate="visible"
-          className="relative mx-auto mt-12 aspect-[3/4] w-full max-w-xs"
+          className="relative mx-auto mt-8 aspect-[3/4] w-full max-w-[200px] md:mt-12 md:max-w-xs"
         >
           {/* Double ring frame */}
           <div className="absolute -inset-3 rounded-[1.75rem] border border-beige-200" />
@@ -130,7 +130,7 @@ export default function Hero({ config }: HeroProps) {
         variants={fade}
         initial="hidden"
         animate="visible"
-        className="mt-12 h-px w-12 bg-beige-300"
+        className="mt-8 h-px w-12 bg-beige-300 md:mt-12"
       />
 
       <motion.p
@@ -138,7 +138,7 @@ export default function Hero({ config }: HeroProps) {
         variants={fade}
         initial="hidden"
         animate="visible"
-        className="mt-12 font-[var(--font-inter)] text-[17px] tracking-wide text-warm-black"
+        className="mt-8 font-[var(--font-inter)] text-[17px] tracking-wide text-warm-black md:mt-12"
       >
         {formatDate(config.date)}
       </motion.p>
@@ -158,7 +158,7 @@ export default function Hero({ config }: HeroProps) {
         variants={fade}
         initial="hidden"
         animate="visible"
-        className="mt-20"
+        className="mt-10 md:mt-20"
         style={{ willChange: "transform" }}
       >
         <motion.svg
