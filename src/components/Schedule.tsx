@@ -41,15 +41,6 @@ const icons: Record<string, React.ReactNode> = {
       <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
     </svg>
   ),
-  cake: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 21v-8a2 2 0 00-2-2H6a2 2 0 00-2 2v8" />
-      <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" />
-      <path d="M2 21h20" />
-      <path d="M7 8v3M12 8v3M17 8v3" />
-      <path d="M7 4h.01M12 4h.01M17 4h.01" />
-    </svg>
-  ),
   party: (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M9 18V5l12-2v13" />
@@ -67,7 +58,6 @@ export default function Schedule() {
     { key: "ceremony", icon: icons.ceremony, time: t.scheduleCeremonyTime, label: t.scheduleCeremony },
     { key: "cocktail", icon: icons.cocktail, time: t.scheduleCocktailTime, label: t.scheduleCocktail },
     { key: "dinner", icon: icons.dinner, time: t.scheduleDinnerTime, label: t.scheduleDinner },
-    { key: "cake", icon: icons.cake, time: t.scheduleCakeTime, label: t.scheduleCake },
     { key: "party", icon: icons.party, time: t.schedulePartyTime, label: t.scheduleParty },
   ];
 
@@ -102,7 +92,10 @@ export default function Schedule() {
         {/* Timeline */}
         <div className="relative mt-14">
           {/* Vertical line */}
-          <div className="absolute left-6 top-2 bottom-2 w-px bg-beige-300 md:left-8" aria-hidden="true" />
+          <div
+            className="absolute start-6 top-2 bottom-2 w-px bg-beige-300 md:start-8"
+            aria-hidden="true"
+          />
 
           <div className="space-y-8">
             {items.map((item) => (

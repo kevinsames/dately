@@ -11,7 +11,6 @@ export interface GalleryConfig {
 export interface FeaturesConfig {
   countdown: boolean;
   gallery: boolean;
-  rsvp: boolean;
   map: boolean;
 }
 
@@ -20,9 +19,7 @@ export interface EventConfig {
   subtitle: string;
   date: string;
   location: LocationConfig;
-  message: string;
-  dresscode?: string;
   features: FeaturesConfig;
-  gallery?: GalleryConfig;
   heroImage?: string;
+  gallery?: GalleryConfig;
 }

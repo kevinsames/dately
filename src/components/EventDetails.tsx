@@ -25,14 +25,14 @@ const stagger = {
 };
 
 export default function EventDetails({ config }: EventDetailsProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   const details = [
-    { key: "date", label: t.date, value: formatDate(config.date) },
-    { key: "time", label: t.time, value: formatTime(config.date) },
+    { key: "date", label: t.date, value: formatDate(config.date, locale) },
+    { key: "time", label: t.time, value: formatTime(config.date, locale) },
     { key: "venue", label: t.venue, value: config.location.venue },
     { key: "location", label: t.location, value: config.location.address },
-    ...(config.dresscode ? [{ key: "dresscode", label: t.dressCode, value: config.dresscode }] : []),
+    { key: "dresscode", label: t.dressCode, value: t.dressCodeValue },
   ];
 
   return (
@@ -63,15 +63,12 @@ export default function EventDetails({ config }: EventDetailsProps) {
           {t.eventMessage}
         </motion.p>
 
-        <motion.div
-          variants={stagger}
-          className="mt-16 grid gap-4 sm:grid-cols-2"
-        >
+        <motion.div variants={stagger} className="mt-16 grid gap-4 sm:grid-cols-2">
           {details.map((detail) => (
             <motion.div
               key={detail.key}
               variants={fadeUp}
-              className="rounded-2xl border-l-2 border-beige-200 bg-beige-50 p-6 text-left"
+              className="rounded-2xl border-l-2 border-beige-200 bg-beige-50 p-6 text-left rtl:border-l-0 rtl:border-r-2"
             >
               <p className="font-[var(--font-inter)] text-[12px] font-medium uppercase tracking-[0.1em] text-warm-gray">
                 {detail.label}
@@ -108,6 +105,22 @@ export default function EventDetails({ config }: EventDetailsProps) {
             </a>
           </motion.div>
         )}
+
+        {/* Contact */}
+        <motion.div variants={fadeUp} className="mt-12 rounded-2xl bg-beige-50 px-6 py-5">
+          <p className="font-[var(--font-inter)] text-[12px] font-medium uppercase tracking-[0.1em] text-warm-gray">
+            {t.contactHeading}
+          </p>
+          <p className="mt-2 font-[var(--font-inter)] text-[15px] text-warm-gray">
+            {t.contactBody}
+          </p>
+          <a
+            href="tel:+4917660954622"
+            className="mt-1 inline-block font-[var(--font-inter)] text-[17px] font-medium text-warm-black transition-opacity hover:opacity-70"
+          >
+            Sima · 0176 60954622
+          </a>
+        </motion.div>
       </div>
     </motion.section>
   );

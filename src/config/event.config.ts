@@ -5,20 +5,16 @@ const basePath = process.env.NODE_ENV === "production" ? "/dately" : "";
 export const eventConfig: EventConfig = {
   title: "Hadi & Homa",
   subtitle: "Nasrollahi",
-  date: "2026-07-24T15:00:00",
+  date: "2026-07-24T14:00:00",
   location: {
     venue: "FeG Ahrensburg",
     address: "Lübecker Straße 4a, 22926 Ahrensburg",
     mapsUrl: "https://maps.google.com/?q=FeG+Ahrensburg+Lübecker+Straße+4a+22926+Ahrensburg",
   },
-  message:
-    "We would love for you to join us as we celebrate our love and begin this beautiful new chapter together.",
-  dresscode: "Come as you are",
   heroImage: `${basePath}/images/hero.jpg`,
   features: {
     countdown: true,
     gallery: false,
-    rsvp: false,
     map: true,
   },
   gallery: {

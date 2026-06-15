@@ -1,6 +1,11 @@
-export function formatDate(dateString: string): string {
+export function formatDate(dateString: string, locale: string = "en"): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
+  const bcp47: Record<string, string> = {
+    en: "en-US",
+    de: "de-DE",
+    fa: "fa-IR-u-ca-gregory",
+  };
+  return date.toLocaleDateString(bcp47[locale] ?? "en-US", {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -8,11 +13,16 @@ export function formatDate(dateString: string): string {
   });
 }
 
-export function formatTime(dateString: string): string {
+export function formatTime(dateString: string, locale: string = "en"): string {
   const date = new Date(dateString);
-  return date.toLocaleTimeString("en-US", {
+  const bcp47: Record<string, string> = {
+    en: "en-US",
+    de: "de-DE",
+    fa: "fa-IR",
+  };
+  return date.toLocaleTimeString(bcp47[locale] ?? "en-US", {
     hour: "numeric",
     minute: "2-digit",
-    hour12: true,
+    hour12: locale === "en",
   });
 }

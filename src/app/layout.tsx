@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Inter, Vazirmatn } from "next/font/google";
 import "./globals.css";
 import LocaleProvider from "@/components/LocaleProvider";
 
@@ -15,8 +15,14 @@ const inter = Inter({
   display: "swap",
 });
 
+const vazirmatn = Vazirmatn({
+  variable: "--font-vazirmatn",
+  subsets: ["arabic"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Hadi & Homa — Save the Date",
+  title: "Hadi & Homa — Hochzeit · Wedding",
   description: "We're getting married. Join us to celebrate.",
 };
 
@@ -26,8 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${playfair.variable} ${inter.variable} antialiased`}>
+    <html lang="de">
+      <body
+        className={`${playfair.variable} ${inter.variable} ${vazirmatn.variable} antialiased`}
+      >
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

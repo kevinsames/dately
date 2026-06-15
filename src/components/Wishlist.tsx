@@ -21,6 +21,41 @@ const stagger = {
 export default function Wishlist() {
   const { t } = useTranslation();
 
+  const items = [
+    {
+      key: "honeymoon",
+      emoji: "✈️",
+      title: t.wishlistHoneymoonTitle,
+      amount: t.wishlistHoneymoonAmount,
+      detail: null,
+      url: null,
+    },
+    {
+      key: "iran",
+      emoji: "🏡",
+      title: t.wishlistIranTitle,
+      amount: t.wishlistIranAmount,
+      detail: t.wishlistIranDetail,
+      url: null,
+    },
+    {
+      key: "amazon",
+      emoji: null,
+      title: t.wishlistAmazonTitle,
+      amount: t.wishlistAmazonDesc,
+      detail: null,
+      url: "https://www.amazon.de/Digitaler-Amazon-Gutschein-Blaues-Amazon/dp/B07Q1JNC7R/",
+    },
+    {
+      key: "wunsch",
+      emoji: null,
+      title: t.wishlistWunschTitle,
+      amount: t.wishlistWunschDesc,
+      detail: null,
+      url: "https://www.wunschgutschein.de/products/dein-wunscherfueller-schmetterling?variant=41151370625224",
+    },
+  ];
+
   return (
     <motion.section
       variants={stagger}
@@ -36,7 +71,6 @@ export default function Wishlist() {
       <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:right-8 xl:right-16">
         <LeafBranch side="right" />
       </div>
-      {/* Green flowers */}
       <div className="absolute bottom-8 right-0 lg:right-6 xl:right-14">
         <GreenFlower side="right" />
       </div>
@@ -64,8 +98,72 @@ export default function Wishlist() {
           variants={fadeUp}
           className="mx-auto mt-6 max-w-lg font-[var(--font-inter)] text-[17px] leading-relaxed text-warm-gray"
         >
-          {t.wishlistBody}
+          {t.wishlistIntro}
         </motion.p>
+
+        <motion.div variants={stagger} className="mt-10 grid gap-3">
+          {items.map((item) => {
+            const inner = (
+              <>
+                <div className="flex items-start gap-3 text-start">
+                  {item.emoji && (
+                    <span className="text-xl leading-none mt-0.5">{item.emoji}</span>
+                  )}
+                  <div>
+                    <p className="font-[var(--font-inter)] text-[17px] font-medium text-warm-black">
+                      {item.title}
+                    </p>
+                    <p className="mt-0.5 font-[var(--font-inter)] text-[14px] text-warm-gray">
+                      {item.amount}
+                    </p>
+                    {item.detail && (
+                      <p className="mt-1 font-[var(--font-inter)] text-[13px] leading-relaxed text-warm-gray">
+                        {item.detail}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                {item.url && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="shrink-0 text-beige-400"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                )}
+              </>
+            );
+
+            return item.url ? (
+              <motion.a
+                key={item.key}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={fadeUp}
+                className="flex items-center justify-between rounded-2xl bg-white px-6 py-5 transition-colors hover:bg-beige-50"
+              >
+                {inner}
+              </motion.a>
+            ) : (
+              <motion.div
+                key={item.key}
+                variants={fadeUp}
+                className="flex items-center justify-between rounded-2xl bg-white px-6 py-5"
+              >
+                {inner}
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </motion.section>
   );

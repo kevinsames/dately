@@ -31,7 +31,7 @@ const floatingDots = [
 ];
 
 export default function Hero({ config }: HeroProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   return (
     <section
@@ -81,7 +81,7 @@ export default function Hero({ config }: HeroProps) {
         animate="visible"
         className="mb-8 font-[var(--font-inter)] text-[13px] font-medium uppercase tracking-[0.25em] text-warm-gray"
       >
-        {t.saveTheDate}
+        {t.invitation}
       </motion.p>
 
       <motion.h1
@@ -110,11 +110,11 @@ export default function Hero({ config }: HeroProps) {
           variants={fade}
           initial="hidden"
           animate="visible"
-          className="relative mx-auto mt-8 aspect-[3/4] w-full max-w-[200px] md:mt-12 md:max-w-xs"
+          className="relative mx-auto mt-8 w-full max-w-sm md:mt-12 md:max-w-2xl"
         >
           {/* Double ring frame */}
           <div className="absolute -inset-3 rounded-[1.75rem] border border-beige-200" />
-          <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-xl">
+          <div className="relative w-full overflow-hidden rounded-3xl shadow-xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={config.heroImage}
@@ -140,7 +140,7 @@ export default function Hero({ config }: HeroProps) {
         animate="visible"
         className="mt-8 font-[var(--font-inter)] text-[17px] tracking-wide text-warm-black md:mt-12"
       >
-        {formatDate(config.date)}
+        {formatDate(config.date, locale)}
       </motion.p>
 
       <motion.p
