@@ -55,6 +55,8 @@ const translations = {
     wishlistWunschTitle: "Wunschgutschein",
     wishlistWunschDesc: "10 × 100 €",
     wishlistLinkCta: "Open Link",
+    wishlistRemaining: "{n} of {total} available",
+    wishlistSoldOut: "All taken",
     accommodationHeading: "Accommodation",
     accommodationBody:
       "Here are a few places we recommend for your stay. All are within easy reach of the venue.",
@@ -140,6 +142,8 @@ const translations = {
     wishlistWunschTitle: "Wunschgutschein",
     wishlistWunschDesc: "10 × 100 €",
     wishlistLinkCta: "Link öffnen",
+    wishlistRemaining: "{n} von {total} verfügbar",
+    wishlistSoldOut: "Alle vergeben",
     accommodationHeading: "Unterkünfte",
     accommodationBody:
       "Hier sind einige Unterkünfte, die wir euch für euren Aufenthalt empfehlen können. Alle sind gut erreichbar.",
@@ -223,6 +227,8 @@ const translations = {
     wishlistWunschTitle: "Wunschgutschein",
     wishlistWunschDesc: "۱۰ × ۱۰۰ یورو",
     wishlistLinkCta: "باز کردن لینک",
+    wishlistRemaining: "{n} از {total} موجود",
+    wishlistSoldOut: "همه گرفته شده",
     accommodationHeading: "اقامت",
     accommodationBody:
       "در اینجا چند محل اقامت توصیه می‌کنیم. همه آن‌ها به محل مراسم نزدیک هستند.",

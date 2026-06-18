@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
+import { useClickCounter } from "@/lib/useClickCounter";
 import SectionHeading from "./SectionHeading";
 import { LeafBranch, GreenFlower } from "./SideFlourish";
 
@@ -20,6 +21,14 @@ const stagger = {
 
 export default function Wishlist() {
   const { t } = useTranslation();
+  const amazonCounter = useClickCounter("amazon-clicks", 5);
+  const wunschCounter = useClickCounter("wunsch-clicks", 10);
+
+  function counterText(remaining: number | null, total: number, fallback: string) {
+    if (remaining === null) return fallback;
+    if (remaining === 0) return t.wishlistSoldOut;
+    return t.wishlistRemaining.replace("{n}", String(remaining)).replace("{total}", String(total));
+  }
 
   const items = [
     {
@@ -29,6 +38,7 @@ export default function Wishlist() {
       amount: t.wishlistHoneymoonAmount,
       detail: null,
       url: null,
+      onClickExtra: undefined,
     },
     {
       key: "iran",
@@ -37,22 +47,25 @@ export default function Wishlist() {
       amount: t.wishlistIranAmount,
       detail: t.wishlistIranDetail,
       url: null,
+      onClickExtra: undefined,
     },
     {
       key: "amazon",
       emoji: null,
       title: t.wishlistAmazonTitle,
-      amount: t.wishlistAmazonDesc,
+      amount: counterText(amazonCounter.remaining, 5, t.wishlistAmazonDesc),
       detail: null,
       url: "https://www.amazon.de/Digitaler-Amazon-Gutschein-Blaues-Amazon/dp/B07Q1JNC7R/",
+      onClickExtra: amazonCounter.increment,
     },
     {
       key: "wunsch",
       emoji: null,
       title: t.wishlistWunschTitle,
-      amount: t.wishlistWunschDesc,
+      amount: counterText(wunschCounter.remaining, 10, t.wishlistWunschDesc),
       detail: null,
       url: "https://www.wunschgutschein.de/products/dein-wunscherfueller-schmetterling?variant=41151370625224",
+      onClickExtra: wunschCounter.increment,
     },
   ];
 
@@ -150,6 +163,7 @@ export default function Wishlist() {
                 rel="noopener noreferrer"
                 variants={fadeUp}
                 className="flex items-center justify-between rounded-2xl bg-white px-6 py-5 transition-colors hover:bg-beige-50"
+                onClick={item.onClickExtra}
               >
                 {inner}
               </motion.a>
