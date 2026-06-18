@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
+import { eventConfig } from "@/config/event.config";
 import SectionHeading from "./SectionHeading";
 import { CornerDots, GreenFlower } from "./SideFlourish";
 
@@ -35,6 +36,7 @@ export default function GoodToKnow() {
       ),
       heading: t.parkingHeading,
       body: t.parkingBody,
+      url: eventConfig.location.parkingMapsUrl,
     },
     {
       key: "schloss",
@@ -94,6 +96,19 @@ export default function GoodToKnow() {
               <p className="mt-1.5 font-[var(--font-inter)] text-[14px] leading-relaxed text-warm-gray">
                 {item.body}
               </p>
+              {item.url && (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1.5 font-[var(--font-inter)] text-[14px] font-medium text-warm-gray transition-colors hover:text-warm-black"
+                >
+                  {t.viewOnMaps}
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                </a>
+              )}
             </motion.div>
           ))}
         </motion.div>

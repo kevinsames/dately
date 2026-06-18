@@ -2,6 +2,7 @@ export interface LocationConfig {
   venue: string;
   address: string;
   mapsUrl?: string;
+  parkingMapsUrl?: string;
 }
 
 export interface GalleryConfig {

@@ -10,6 +10,7 @@ export const eventConfig: EventConfig = {
     venue: "FeG Ahrensburg",
     address: "Lübecker Straße 4a, 22926 Ahrensburg",
     mapsUrl: "https://maps.google.com/?q=FeG+Ahrensburg+Lübecker+Straße+4a+22926+Ahrensburg",
+    parkingMapsUrl: "https://maps.app.goo.gl/tecEuqHrgyoz2nY96?g_st=ic",
   },
   heroImage: `${basePath}/images/hero.jpg`,
   features: {
