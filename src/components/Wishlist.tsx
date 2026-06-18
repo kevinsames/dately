@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
-import { useClickCounter } from "@/lib/useClickCounter";
 import SectionHeading from "./SectionHeading";
 import { LeafBranch, GreenFlower } from "./SideFlourish";
 
@@ -21,51 +20,19 @@ const stagger = {
 
 export default function Wishlist() {
   const { t } = useTranslation();
-  const amazonCounter = useClickCounter("amazon-clicks", 5);
-  const wunschCounter = useClickCounter("wunsch-clicks", 10);
-
-  function counterText(remaining: number | null, total: number, fallback: string) {
-    if (remaining === null) return fallback;
-    if (remaining === 0) return t.wishlistSoldOut;
-    return t.wishlistRemaining.replace("{n}", String(remaining)).replace("{total}", String(total));
-  }
 
   const items = [
     {
       key: "honeymoon",
       emoji: "✈️",
       title: t.wishlistHoneymoonTitle,
-      amount: t.wishlistHoneymoonAmount,
-      detail: null,
-      url: null,
-      onClickExtra: undefined,
+      detail: t.wishlistHoneymoonDetail,
     },
     {
       key: "iran",
       emoji: "🏡",
       title: t.wishlistIranTitle,
-      amount: t.wishlistIranAmount,
       detail: t.wishlistIranDetail,
-      url: null,
-      onClickExtra: undefined,
-    },
-    {
-      key: "amazon",
-      emoji: null,
-      title: t.wishlistAmazonTitle,
-      amount: counterText(amazonCounter.remaining, 5, t.wishlistAmazonDesc),
-      detail: null,
-      url: "https://www.amazon.de/Digitaler-Amazon-Gutschein-Blaues-Amazon/dp/B07Q1JNC7R/",
-      onClickExtra: amazonCounter.increment,
-    },
-    {
-      key: "wunsch",
-      emoji: null,
-      title: t.wishlistWunschTitle,
-      amount: counterText(wunschCounter.remaining, 10, t.wishlistWunschDesc),
-      detail: null,
-      url: "https://www.wunschgutschein.de/products/dein-wunscherfueller-schmetterling?variant=41151370625224",
-      onClickExtra: wunschCounter.increment,
     },
   ];
 
@@ -115,68 +82,23 @@ export default function Wishlist() {
         </motion.p>
 
         <motion.div variants={stagger} className="mt-10 grid gap-3">
-          {items.map((item) => {
-            const inner = (
-              <>
-                <div className="flex items-start gap-3 text-start">
-                  {item.emoji && (
-                    <span className="text-xl leading-none mt-0.5">{item.emoji}</span>
-                  )}
-                  <div>
-                    <p className="font-[var(--font-inter)] text-[17px] font-medium text-warm-black">
-                      {item.title}
-                    </p>
-                    <p className="mt-0.5 font-[var(--font-inter)] text-[14px] text-warm-gray">
-                      {item.amount}
-                    </p>
-                    {item.detail && (
-                      <p className="mt-1 font-[var(--font-inter)] text-[13px] leading-relaxed text-warm-gray">
-                        {item.detail}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                {item.url && (
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="shrink-0 text-beige-400"
-                    aria-hidden="true"
-                  >
-                    <path d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                )}
-              </>
-            );
-
-            return item.url ? (
-              <motion.a
-                key={item.key}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={fadeUp}
-                className="flex items-center justify-between rounded-2xl bg-white px-6 py-5 transition-colors hover:bg-beige-50"
-                onClick={item.onClickExtra}
-              >
-                {inner}
-              </motion.a>
-            ) : (
-              <motion.div
-                key={item.key}
-                variants={fadeUp}
-                className="flex items-center justify-between rounded-2xl bg-white px-6 py-5"
-              >
-                {inner}
-              </motion.div>
-            );
-          })}
+          {items.map((item) => (
+            <motion.div
+              key={item.key}
+              variants={fadeUp}
+              className="flex items-start gap-3 rounded-2xl bg-white px-6 py-5 text-start"
+            >
+              <span className="text-xl leading-none mt-0.5">{item.emoji}</span>
+              <div>
+                <p className="font-[var(--font-inter)] text-[17px] font-medium text-warm-black">
+                  {item.title}
+                </p>
+                <p className="mt-1 font-[var(--font-inter)] text-[13px] leading-relaxed text-warm-gray">
+                  {item.detail}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </motion.section>
