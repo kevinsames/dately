@@ -6,6 +6,7 @@ import { formatDate, formatTime } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
 import { CornerDots, CurvedVine } from "./SideFlourish";
+import ContactForm from "./ContactForm";
 
 interface EventDetailsProps {
   config: EventConfig;
@@ -107,19 +108,8 @@ export default function EventDetails({ config }: EventDetailsProps) {
         )}
 
         {/* Contact */}
-        <motion.div variants={fadeUp} className="mt-12 rounded-2xl bg-beige-50 px-6 py-5">
-          <p className="font-[var(--font-inter)] text-[12px] font-medium uppercase tracking-[0.1em] text-warm-gray">
-            {t.contactHeading}
-          </p>
-          <p className="mt-2 font-[var(--font-inter)] text-[15px] text-warm-gray">
-            {t.contactBody}
-          </p>
-          <a
-            href="tel:+4917660954622"
-            className="mt-1 inline-block font-[var(--font-inter)] text-[17px] font-medium text-warm-black transition-opacity hover:opacity-70"
-          >
-            Sima · 0176 60954622
-          </a>
+        <motion.div variants={fadeUp} className="mt-12">
+          <ContactForm />
         </motion.div>
       </div>
     </motion.section>

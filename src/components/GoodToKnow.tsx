@@ -35,7 +35,6 @@ export default function GoodToKnow() {
       ),
       heading: t.parkingHeading,
       body: t.parkingBody,
-      url: null,
     },
     {
       key: "schloss",
@@ -47,7 +46,6 @@ export default function GoodToKnow() {
       ),
       heading: t.schlossHeading,
       body: t.schlossBody,
-      url: null,
     },
     {
       key: "childcare",
@@ -60,43 +58,6 @@ export default function GoodToKnow() {
       ),
       heading: t.childcareHeading,
       body: t.childcareBody,
-      url: null,
-    },
-    {
-      key: "food",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
-        </svg>
-      ),
-      heading: t.foodHeading,
-      body: t.foodBody,
-      url: null,
-    },
-    {
-      key: "music",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 18V5l12-2v13" />
-          <circle cx="6" cy="18" r="3" />
-          <circle cx="18" cy="16" r="3" />
-        </svg>
-      ),
-      heading: t.musicHeading,
-      body: t.musicBody,
-      url: null,
-    },
-    {
-      key: "fingerfood",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-          <path d="M8 12h8M12 8v8" />
-        </svg>
-      ),
-      heading: t.fingerfoodHeading,
-      body: t.fingerfoodBody,
-      url: FINGERFOOD_URL,
     },
   ];
 
@@ -133,31 +94,52 @@ export default function GoodToKnow() {
               <p className="mt-1.5 font-[var(--font-inter)] text-[14px] leading-relaxed text-warm-gray">
                 {item.body}
               </p>
-              {item.url && (
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1 font-[var(--font-inter)] text-[13px] font-medium text-warm-black transition-opacity hover:opacity-70"
-                >
-                  {t.fingerfoodCta}
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </a>
-              )}
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Fingerfood — full-width highlight card */}
+        <motion.div
+          variants={fadeUp}
+          className="mt-4 rounded-2xl bg-warm-black px-8 py-8 text-start sm:flex sm:items-center sm:justify-between sm:gap-8"
+        >
+          <div className="flex items-start gap-4">
+            <div className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 text-white">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                <path d="M8 12h8M12 8v8" />
+              </svg>
+            </div>
+            <div>
+              <p className="font-[var(--font-inter)] text-[18px] font-semibold text-white">
+                {t.fingerfoodHeading}
+              </p>
+              <p className="mt-1.5 font-[var(--font-inter)] text-[14px] leading-relaxed text-white/70">
+                {t.fingerfoodBody}
+              </p>
+            </div>
+          </div>
+          <a
+            href={FINGERFOOD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-[var(--font-inter)] text-[14px] font-semibold text-warm-black transition-opacity hover:opacity-85 sm:mt-0 sm:shrink-0"
+          >
+            {t.fingerfoodCta}
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </a>
         </motion.div>
       </div>
     </motion.section>
